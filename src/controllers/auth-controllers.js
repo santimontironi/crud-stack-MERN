@@ -1,4 +1,4 @@
-import User from "../models/user-model"
+import User from "../models/user-model.js"
 
 export const register = async (req,res) => {
 
@@ -12,8 +12,7 @@ export const register = async (req,res) => {
         })
     
         await newUser.save()
-    
-        console.log(newUser)
+        
     }
     catch(error){
         console.log("Wrong user register:",error)
