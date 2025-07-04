@@ -1,5 +1,6 @@
 import User from "../models/user-model.js"
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 export const register = async (req,res) => {
 
@@ -17,12 +18,23 @@ export const register = async (req,res) => {
     
         const userSaved = await newUser.save()
 
-        res.json({
-            id:userSaved.id,
-            username: userSaved.username,
-            email: userSaved.email
-        })
-        
+        jwt.sign(
+            {
+                id:userSaved.id
+            },
+            "secret123",
+            {
+                expiresIn: "1d"
+            },
+            (err,token) => {
+                if(err) console.log(err)
+                res.cookie('token',token)
+                res.json({
+                    message:'User created successfully'
+                })
+            }
+        )
+                
     }
     catch(error){
         console.log("Wrong user register:",error)
