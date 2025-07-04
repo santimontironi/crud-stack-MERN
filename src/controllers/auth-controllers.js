@@ -37,11 +37,48 @@ export const register = async (req,res) => {
         
     }
     catch(error){
-        console.log("Wrong user register:",error)
+        return res.status(500).json({message:`Wrong user register: ${error}`})
     }
     
 }
 
-export const login = (req,res) => {
-    res.send('LOGIN')
+export const login = async (req,res) => {
+
+    //se toman los datos enviados desde el frontend
+    const {email,password} = req.body
+
+    try{
+
+        const userFound = await User.findOne({email})
+
+        if(!userFound){
+            return res.status(404).json({message:'User not found'})
+        }
+
+        //se hashea la contraseña
+        const matchPassword = await bcrypt.compare(password,userFound.password)
+
+        if(!matchPassword){
+            return res.status(400).json({message:'Incorrect password.'})
+        }
+
+        
+        const token = await createAccessToken({id:userFound.id})
+
+        //se crea una cookie llamada token donde contiene como valor la cookie creada
+        res.cookie('token',token)
+
+        res.json({
+            id: userSaved.id,
+            username: userSaved.username,
+            email: userSaved.email,
+            createdAt: userSaved.createdAt,
+            updatedAt: userSaved.updatedAt
+        })
+        
+    }
+    catch(error){
+        console.log("Wrong user register:",error)
+    }
+    
 }

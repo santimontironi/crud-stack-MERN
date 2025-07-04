@@ -12,7 +12,7 @@ export function createAccessToken(payload){
                 expiresIn: "1d"
             },
             //callback asincrono para almacenar el token en una cookie en el navegador
-            async (err,token) => {
+            (err,token) => {
                 if(err) console.log(reject(err))
                 resolve(token)
             }
@@ -20,3 +20,5 @@ export function createAccessToken(payload){
     })
     
 }
+
+//Se envuelve la operacion de la creacion del token en una promesa para que, al importar la función, podamos usar await directamente.
