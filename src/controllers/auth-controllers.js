@@ -69,11 +69,11 @@ export const login = async (req,res) => {
         res.cookie('token',token)
 
         res.json({
-            id: userSaved.id,
-            username: userSaved.username,
-            email: userSaved.email,
-            createdAt: userSaved.createdAt,
-            updatedAt: userSaved.updatedAt
+            id: userFound.id,
+            username: userFound.username,
+            email: userFound.email,
+            createdAt: userFound.createdAt,
+            updatedAt: userFound.updatedAt
         })
         
     }
