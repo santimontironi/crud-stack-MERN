@@ -93,6 +93,8 @@ export const logout = (req,res) => {
     }
 }
 
-export const profile = (req,res) => {
-    res.send('Profile')
+export const profile = async (req,res) => {
+    const user = await User.findById(req.user.id)
+    console.log(`${user.username} is in Profile`)
+    res.send('Welcome to the profile')
 }
