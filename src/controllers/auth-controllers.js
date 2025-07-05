@@ -2,6 +2,7 @@ import User from "../models/user-model.js"
 import bcrypt from "bcryptjs";
 import {createAccessToken} from "../libs/jwt.js";
 
+
 export const register = async (req,res) => {
 
     //se toman los datos enviados desde el frontend
@@ -90,4 +91,8 @@ export const logout = (req,res) => {
     } catch (error) {
         res.status(500).json({ message: "Logout error", error: error.message });
     }
+}
+
+export const profile = (req,res) => {
+    res.send('Profile')
 }
