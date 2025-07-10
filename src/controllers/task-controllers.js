@@ -4,7 +4,12 @@ export const getTasks = async (req,res) => {
     const tasks = await Tasks.find({
         user: req.user.id
     });
-    res.json(tasks)
+    if(!tasks){
+        res.status(404).send("Tasks not found.")
+    }
+    else{
+        res.json(tasks)
+    }
 }
 
 export const getTaskById = async (req,res) => {
