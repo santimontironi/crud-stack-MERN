@@ -40,8 +40,12 @@ export const postTask = async (req,res) => {
 
 export const deleteTask = async (req,res) => {
     const idTask = req.params.id;
-    await Tasks.findByIdAndDelete(idTask);
-    res.json({ message: 'Task deleted successfully' });
+    const taskEliminated = await Tasks.findByIdAndDelete(idTask);
+    if(!taskEliminated){
+        res.status(404).send("Task not found")
+    }else{
+        res.json({ message: 'Task deleted successfully' });
+    }
 }
 
 export const putTask = async (req,res) => {
@@ -52,5 +56,11 @@ export const putTask = async (req,res) => {
         { title, description },
         { new: true }
     );
-    res.json(updatedTask);
+    if(!updatedTask){
+        res.status(404).send("Task not found")
+    }else{
+        res.json({ message: 'Task edited successfully' });
+        res.json(updatedTask);
+    }
+    
 }
