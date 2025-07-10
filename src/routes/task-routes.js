@@ -4,11 +4,11 @@ import { getTasks, getTaskById, postTask, deleteTask, putTask } from "../control
 
 const router = Router()
 
-app.get('/tasks', authRequired, getTasks)
-app.get('/task:id', authRequired, getTaskById)
-app.post('/addTask', authRequired, postTask)
-app.delete('/deleteTask:id', authRequired, deleteTask)
-app.get('/editTask:id', authRequired, putTask)
+router.get('/tasks', authRequired, getTasks)
+router.get('/task:id', authRequired, getTaskById)
+router.post('/addTask', authRequired, postTask)
+router.delete('/deleteTask:id', authRequired, deleteTask)
+router.get('/editTask:id', authRequired, putTask)
 
 export default router
 
