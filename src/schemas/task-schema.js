@@ -6,5 +6,5 @@ export const taskSchema = z.object({
     }),
     description: z.string({
         required_error: "Description must be a string"
-    }).optional()
+    })
 })
