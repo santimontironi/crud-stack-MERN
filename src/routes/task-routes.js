@@ -6,11 +6,11 @@ import { taskSchema } from "../schemas/task-schema.js";
 
 const router = Router()
 
-router.get('/tasks', validateSchema(taskSchema), authRequired, getTasks)
-router.get('/task/:id', validateSchema(taskSchema), authRequired, getTaskById)
-router.post('/addTask', validateSchema(taskSchema), authRequired, postTask)
-router.delete('/deleteTask:id', validateSchema(taskSchema), authRequired, deleteTask)
-router.get('/editTask:id', validateSchema(taskSchema), authRequired, putTask)
+router.get('/tasks', authRequired, validateSchema(task), getTasks)
+router.get('/task/:id', authRequired, validateSchema(task), getTaskById)
+router.post('/addTask', authRequired, validateSchema(task), postTask)
+router.delete('/deleteTask:id', authRequired, validateSchema(task), deleteTask)
+router.get('/editTask:id', authRequired, validateSchema(task), putTask)
 
 export default router
 
