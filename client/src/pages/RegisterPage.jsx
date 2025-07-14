@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form"
+import { registerAxios } from "../../api/auth"
 
 
 const RegisterPage = () => {
 
     const {register,handleSubmit,reset} = useForm()
 
-    function submitForm(values){
-        console.log(values)
+    async function submitForm(values){
+        const res = await registerAxios(values)
+        console.log(res)
         reset()
     }
 
