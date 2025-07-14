@@ -10,7 +10,9 @@ export const register = async (req,res) => {
 
     try{
 
-        const existingUser = await User.findOne({email:email,username:username})
+        const existingUser = await User.findOne({
+            $or:[{email},{username}]
+        })
         if(existingUser){
             return res.status(400).json({message: 'Datos incorrectos.'})
         }

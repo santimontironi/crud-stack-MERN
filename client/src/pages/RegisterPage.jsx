@@ -1,19 +1,35 @@
 import { useForm } from "react-hook-form"
 import { useAuth } from "../context/useAuth"
+import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 const RegisterPage = () => {
 
     const {register,handleSubmit,reset} = useForm()
     const {signUp} = useAuth()
 
+    const[errors,setErrors] = useState("")
+    const[correctRegister,setCorrectRegister] = useState(false)
+    const navigate = useNavigate()
+
     async function submitForm(values) {
         try {
           await signUp(values)
+          setCorrectRegister(true)
+          setErrors("")
           reset();
         } catch (error) {
-          console.error("Error en el registro:", error);
+            if(error.response?.data?.message){
+                setErrors(error.response.data.message)
+            }
         }
     }
+
+    useEffect(() => {
+        if (correctRegister) {
+            navigate('/tasks')
+        }
+    }, [correctRegister, navigate])
 
     return (
         <main className="contenedorRegistro w-full h-screen bg-green-400">
@@ -27,6 +43,12 @@ const RegisterPage = () => {
                 </form>
                 <p className="p-3 bg-white">Si ya tenés cuenta <a className="underline text-green-700 font-bold" href="/login">Ingresá</a></p>
             </div>
+            {errors &&(
+                <p className="text-center text-[25px] mt-3">{errors}</p>
+            )}
+            {correctRegister &&(
+                <p className="text-center text-[25px] mt-3">Usuario registrado correctamente.</p>
+            )}
         </main>
         
   )
