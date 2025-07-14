@@ -9,6 +9,7 @@ export const AuthProvider = ({children}) => {
     async function signUp(user){
         const res = await registerAxios(user)
         setUser(res.data)
+        return res.data
     }
 
     return(

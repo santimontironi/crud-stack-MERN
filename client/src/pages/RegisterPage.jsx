@@ -1,15 +1,14 @@
 import { useForm } from "react-hook-form"
-import { registerAxios } from "../../api/auth"
-
+import { useAuth } from "../context/useAuth"
 
 const RegisterPage = () => {
 
     const {register,handleSubmit,reset} = useForm()
+    const {signUp} = useAuth()
 
     async function submitForm(values) {
         try {
-          const res = await registerAxios(values);
-          console.log(res);
+          await signUp(values)
           reset();
         } catch (error) {
           console.error("Error en el registro:", error);
