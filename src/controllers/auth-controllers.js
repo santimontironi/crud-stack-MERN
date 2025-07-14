@@ -10,9 +10,9 @@ export const register = async (req,res) => {
 
     try{
 
-        const existingUser = await User.findOne({email:email})
+        const existingUser = await User.findOne({email:email,username:username})
         if(existingUser){
-            return res.status(400).json({message: 'El correo ya está registrado.'})
+            return res.status(400).json({message: 'Datos incorrectos.'})
         }
 
         //se hashea la contraseña
