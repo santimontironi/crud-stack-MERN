@@ -5,11 +5,11 @@
 }
 
 h1{
-    font-size: 70px;
+    font-size: 50px;
     color: #fff;
     background-color: #000;
     text-align: center;
-    width: 1200px;
+    width: 800px;
     padding: 4px;
     margin: auto;
     position: relative;
@@ -41,8 +41,8 @@ form{
 }
 
 form input{
-    font-size: 18px;
-    padding: 15px;
+    font-size: 16px;
+    padding: 12px;
     border-radius: 5px;
     border: none;
 }
@@ -55,7 +55,7 @@ form button{
     color: #fff;
     margin: auto;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 form button:hover{
@@ -65,8 +65,8 @@ form button:hover{
 .contentForm p{
     color: #fff;
     text-align: center;
-    font-size: 17px;
-    padding: 12px;
+    font-size: 15px;
+    padding: 10px;
     background-color: #000;
 }
 
