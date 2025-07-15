@@ -6,8 +6,6 @@ import "../public/css/register.css"
 
 const RegisterPage = () => {
 
-    console.log(innerWidth)
-
     const {register,handleSubmit,reset} = useForm()
     const {signUp} = useAuth()
 
