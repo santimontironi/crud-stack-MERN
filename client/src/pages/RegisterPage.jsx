@@ -56,17 +56,16 @@ const RegisterPage = () => {
 
                     <button type="submit">Registrarse</button>
 
+                    {errorRegister &&(
+                        <p className="messageError">{errorRegister}</p>
+                    )}
+
                 </form>
                 
                 <p>Si ya tenés cuenta <a href="/login">Ingresá</a></p>
+
             </div>
             
-            {errorRegister &&(
-                <p className="messageError">{errorRegister}</p>
-            )}
-            {correctRegister &&(
-                <p className="correctRegister">Usuario registrado correctamente.</p>
-            )}
         </main>
         
   )

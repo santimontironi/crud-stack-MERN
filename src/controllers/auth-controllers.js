@@ -14,7 +14,7 @@ export const register = async (req,res) => {
             $or:[{email},{username}]
         })
         if(existingUser){
-            return res.status(400).json({message: 'Datos incorrectos.'})
+            return res.status(400).json({message: 'Datos incorrectos. Ya existe un usuario con este email o username.'})
         }
 
         //se hashea la contraseña
