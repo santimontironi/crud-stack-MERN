@@ -101,7 +101,23 @@ form button:hover{
 }
 
 @media (min-width: 1280px) and (max-width: 1440px){
-    
+    h1{
+        font-size: 50px;
+        width: 700px;
+    }
+    form{
+        width: 350px;
+    }
+    form input{
+        font-size: 14px;
+    }
+    form button{
+        font-size: 14px;
+    }
+    .contentForm p{
+        font-size: 14px;
+        padding: 10px;
+    }
 }
 
 
