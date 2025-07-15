@@ -29,7 +29,6 @@ h1{
 form{
     display: flex;
     flex-direction: column;
-    gap: 15px;
     justify-content: center;
     width: 500px;
     background-color: #000;
@@ -45,6 +44,7 @@ form input{
     padding: 12px;
     border-radius: 5px;
     border: none;
+    margin-top: 12px;
 }
 
 form button{
@@ -75,6 +75,14 @@ form button:hover{
     text-decoration: underline;
 }
 
+.contentForm .error{
+    padding: 0;
+    background-color: transparent;
+    text-align: initial;
+    font-size: 14px;
+    color: #d13115;
+    margin-top: 10px;
+}
 
 @media(max-width:800px){
     h1{
