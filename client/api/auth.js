@@ -5,3 +5,7 @@ const URL_BACKEND = 'http://localhost:3000'
 export function registerAxios(user){
     return axios.post(`${URL_BACKEND}/register`,user)
 }
+
+export function loginAxios(user){
+    return axios.post(`${URL_BACKEND}/login`,user)
+}

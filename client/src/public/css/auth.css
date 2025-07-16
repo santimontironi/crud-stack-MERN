@@ -4,7 +4,7 @@
     background: linear-gradient(180deg,#4a1391,#000);
 }
 
-h1{
+.containerRegister h1{
     font-size: 50px;
     color: #fff;
     background-color: #000;
@@ -26,7 +26,7 @@ h1{
     align-items: center;
 }
 
-form{
+.containerRegister form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,7 +39,7 @@ form{
     border-radius: 10px;
 }
 
-form input{
+.containerRegister form input{
     font-size: 16px;
     padding: 12px;
     border-radius: 5px;
@@ -47,7 +47,7 @@ form input{
     margin-top: 12px;
 }
 
-form button{
+.containerRegister form button{
     border: none;
     width: 150px;
     padding: 12px;
@@ -59,7 +59,7 @@ form button{
     margin-top: 20px;
 }
 
-form button:hover{
+.containerRegister form button:hover{
     background-color: #2a7c2a;
 }
 
@@ -93,19 +93,19 @@ form button:hover{
 }
 
 @media(max-width:800px){
-    h1{
+    .containerRegister h1{
         font-size: 40px;
         width: 300px;
     }
-    form{
+    .containerRegister form{
         width: 260px;
         height: 200px;
     }
-    form input{
+    .containerRegister form input{
         font-size: 16px;
         padding: 10px;
     }
-    form button{
+    .containerRegister form button{
         width: 120px;
         padding: 10px;
         font-size: 16px;
@@ -124,13 +124,13 @@ form button:hover{
         border-radius: 10px;
         padding: 15px;
     }
-    form{
+    .containerRegister form{
         width: 350px;
     }
-    form input{
+    .containerRegister form input{
         font-size: 14px;
     }
-    form button{
+    .containerRegister form button{
         font-size: 14px;
     }
     .contentForm p{

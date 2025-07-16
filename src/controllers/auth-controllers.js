@@ -53,14 +53,13 @@ export const register = async (req,res) => {
 export const login = async (req,res) => {
 
     //se toman los datos enviados desde el frontend
-    const {email,password} = req.body
+    const {username,password} = req.body
 
     try{
 
-        const userFound = await User.findOne({email})
-
-        if(!userFound){
-            return res.status(404).json({message:'User not found'})
+        const existingUser = await User.findOne({username})
+        if(!existingUser){
+            return res.status(400).json({message: 'Datos incorrectos. No existe un usuario con este username.'})
         }
 
         //se hashea la contraseña

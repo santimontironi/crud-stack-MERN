@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form"
 import { useAuth } from "../context/useAuth"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import "../public/css/register.css"
+import "../public/css/auth.css"
 
 const RegisterPage = () => {
 
