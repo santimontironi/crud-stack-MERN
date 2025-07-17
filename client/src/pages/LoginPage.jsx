@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form"
 import { useAuth } from "../context/useAuth"
-import { useState, useEffect, use } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { set } from "mongoose"
 
 const LoginPage = () => {
 
@@ -14,16 +13,18 @@ const LoginPage = () => {
 
   const { signIn } = useAuth()
 
-  function submitForm(values) {
+  async function submitForm(values) {
     try {
-      signIn(values)
+      await signIn(values)
       reset()
       setErrorLogin("")
       setCorrectLogin(true)
     } catch (error){
+      console.log("error completo",error.response)
       if (error.response?.data?.message) {
         setErrorLogin(error.response.data.message)
       }
+      setCorrectLogin(false)
     }
   }
 
@@ -52,10 +53,10 @@ const LoginPage = () => {
             <p className="error">La contraseña es requerida</p>
           )}
 
-          <button type="input">Ingresar</button>
+          <button type="submit">Ingresar</button>
 
           {errorLogin &&(
-              <p className="messageError">{errorLogin}</p>
+            <p className="messageError">{errorLogin}</p>
           )}
 
         </form>

@@ -57,8 +57,8 @@ export const login = async (req,res) => {
 
     try{
 
-        const existingUser = await User.findOne({username})
-        if(!existingUser){
+        const userFound = await User.findOne({username})
+        if(!userFound){
             return res.status(400).json({message: 'Datos incorrectos. No existe un usuario con este username.'})
         }
 
@@ -85,7 +85,8 @@ export const login = async (req,res) => {
         
     }
     catch(error){
-        console.log("Wrong user register:",error)
+        console.error("Error en el login:", error)
+        return res.status(500).json({ message: "Error del servidor. Intente más tarde." })
     }
     
 }
