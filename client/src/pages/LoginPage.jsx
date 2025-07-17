@@ -37,7 +37,7 @@ const LoginPage = () => {
   return (
     <main className="containerLogin">
 
-      <h1 className="">Iniciar Sesión</h1>
+      <h1 className="">Iniciar sesión</h1>
 
       <div className="contentForm">
 
@@ -60,6 +60,8 @@ const LoginPage = () => {
           )}
 
         </form>
+
+        <p>Si no tenés cuenta <a href="/register">Creá una nueva</a></p>
         
       </div>
       

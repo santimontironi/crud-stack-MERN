@@ -62,7 +62,7 @@ const RegisterPage = () => {
 
                 </form>
                 
-                <p>Si ya tenés cuenta <a href="/login">Ingresá</a></p>
+                <p>Si ya tenés cuenta <a href="/">Ingresá</a></p>
 
             </div>
             
