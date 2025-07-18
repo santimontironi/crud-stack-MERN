@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { registerAxios } from "../../api/auth";
-import { loginAxios } from "../../api/auth";
+import { registerAxios, loginAxios, logoutAxios } from "../../api/auth";
 import { AuthContext } from "./AuthContext";
 
 export const AuthProvider = ({children}) => {
@@ -19,10 +18,16 @@ export const AuthProvider = ({children}) => {
         return res.data
     }
 
+    async function logout(){
+        await logoutAxios()
+        setUser(null)
+    }
+
     return(
         <AuthContext.Provider value={{
             signUp,
             signIn,
+            logout,
             user
         }}>
             {children}
